@@ -1,0 +1,172 @@
+
+.other{
+    background-color: #ff4c68;
+    padding: 100px 50px 100px 100px;
+    margin-left: 231px;
+    margin-right: 10px;
+  font-family: 'Montserrat-Black', sans-serif;
+
+}
+#title {
+  background-color: #ff4c68;
+  padding-bottom: 2rem;
+}
+.title-image {
+  transform : rotate(20deg);
+  width : 50%;
+  position: absolute;
+  right:30px;
+}
+
+h1 {
+font-family: 'Montserrat-Black', sans-serif;
+font-weight: 900;
+color: white;
+font-size: 3rem;
+line-height: 1.5;
+}
+h2 {
+  font-family: 'Montserrat-Black', sans-serif;
+  font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+}
+h3 {
+font-family: 'Montserrat-Black', sans-serif;
+font-weight: 900;
+  font-size: 1.5rem;
+}
+.container-fluid {
+  padding: 3% 15%;
+}
+.nav-item {
+  margin-right: 35px;
+  FONT-SIZE: 1.3rem;
+}
+.navbar-nav {
+  padding-right: 100px;
+}
+.navbar {
+padding-left: 0;
+  margin-bottom: 4rem;
+}
+.btnf {
+  margin: 5% 3% 0;
+}
+
+/* Features */
+
+#features {
+  background-color: white;
+  position: relative;
+ /* bottom: 200px; */
+  text-align: center;
+padding-top: 3.5rem;
+margin-bottom: 5rem;
+}
+
+.seci {
+  color: #ef8172;
+  transform: scale(3);
+  margin-bottom: 2rem;
+}
+
+.sect {
+  width: 45%; margin: 0 auto;
+  font-weight: 100;
+  color: #8f8f8f;
+}
+
+.sec:hover {
+  color: #ff4c68;
+}
+
+/* Testimonials */
+#testimonials {
+  background-color: #ef8172;
+  text-align: center;
+
+margin-top: 0;
+}
+#tests {
+  padding: 7% 15%;
+}
+.testi {
+  width: 10%;
+  border-radius: 100%;
+  margin-right:  5%;
+  margin-top:  5%;
+}
+.th {
+    color: white;
+}
+/* press */
+#press {
+    background-color: #ef8172;
+      text-align: center;
+      padding-bottom: 1%;
+}
+.pi {
+  width: 15%;
+  margin: 5% 3%;
+}
+#pricing {
+  padding: 7%;
+  text-align: center;
+}
+.pric {
+  margin: 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* cta section */
+#cta {
+  background-color: #ff4c68;
+  text-align: center;
+    padding: 5% 15%;
+    padding-bottom: 50px;
+}
+.last-h3 {
+  color: white;
+  font-family: 'Montserrat-Black', sans-serif;
+  font-weight: 900;
+    font-size: 3rem;
+    line-height: 1.5;
+    width: 83%;
+    margin: 1% auto;
+}
+.btnl {
+  margin: 3% 2%;
+}
+#footer {
+      padding: 0;
+      text-align: center;
+}
+.fa-2x {
+  margin : 1.5%;
+}
+@media (max-width : 1020px) {
+  #title {
+    text-align: center;
+  }
+  .title-image {
+    position: static;
+    transform: rotate(0);
+    margin: 3% auto;
+  }
+  .fa-2x {
+    transform: scale(0.69);
+  }
+}
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 8px 9px 0 #05dfd7;
+  margin: 8px;
+
+}

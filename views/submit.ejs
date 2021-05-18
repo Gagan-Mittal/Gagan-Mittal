@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+<div style="background-color: #4B7C5D; padding: 60px 0 80px 0; ">
+<div class="container other ">
+  <div class=" centered">
+      <h1 style="color: #F3F1C7; display: inline-block; " >Submit your dog description  </h1>
+<!-- <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> <i class="fas fa-2x fa-paw"></i> -->
+      <br> <br>
+    <p style="color:  #405EAA; font-weight: 900;  font-size: 1.5rem;" class="secret-text">Hey, If you willing to find a match for your dog then just simply add its description, your location Or which breed dog you want.
+      <br> <br >   Let put the first step for your dog   </p>
+
+    <form action="/submit" method="POST">
+    <p style="color: #F3F1C7; display: inline-block;  " >Name: </p>
+      <input type="text" name="name" >
+      <div class="form-group ">
+
+        <textarea placeholder="Drop your post" name="secret" rows="5" cols="50" ></textarea>
+
+        <!-- <input type="text" class=" text-center" name="secret" placeholder="Title"> -->
+      </div>
+<br>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+
+
+  </div>
+</div>
+</div>
+<%- include('partials/footer') %>

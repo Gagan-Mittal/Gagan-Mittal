@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<div style="background-color: #4B7C5D;  ">
+
+<div class="container mt-5 other">
+  <h1>Login</h1>
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /login route -->
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-dark">Login</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign In with Google
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br> <br>
+  <a class="btn btn-primary btn-lg" href="/register" role="button">Register</a>
+  <a class="btn btn-dark btn-lg" href="/submit" role="button">Submit</a>
+
+</div></div>
+
+<%- include('partials/footer') %>
