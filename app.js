@@ -1,4 +1,4 @@
-//jshint esversion:6
+//jshint esversion:6 hello
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -34,6 +34,7 @@ const userSchema = new mongoose.Schema ({
   password: String,
   googleId: String,
   secret: String,
+  
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -120,7 +121,7 @@ app.post("/submit", function(req, res){
   const name = req.body.name;
 
 //Once the user is authenticated and their session gets saved, their user details are saved to req.user.
-  // console.log(req.user.id);
+  // console.log(req.body);
 
   User.findById(req.user.id, function(err, foundUser){
     if (err) {
@@ -168,7 +169,7 @@ app.post("/login", function(req, res){
 
   req.login(user, function(err){
     if (err) {
-      console.log(err);
+       console.log(err);
     } else {
       passport.authenticate("local")(req, res, function(){
         res.redirect("/submit");

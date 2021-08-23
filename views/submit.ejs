@@ -8,17 +8,25 @@
     <p style="color:  #405EAA; font-weight: 900;  font-size: 1.5rem;" class="secret-text">Hey, If you willing to find a match for your dog then just simply add its description, your location Or which breed dog you want.
       <br> <br >   Let put the first step for your dog   </p>
 
-    <form action="/submit" method="POST">
-    <p style="color: #F3F1C7; display: inline-block;  " >Name: </p>
+    <form action="/submit" method="POST" class="center" autocomplete="on" style="color: #F3F1C7; display: inline-block;">
+      <label   for="">Owner's Name: </label>
       <input type="text" name="name" >
-      <div class="form-group ">
-
-        <textarea placeholder="Drop your post" name="secret" rows="5" cols="50" ></textarea>
-
-        <!-- <input type="text" class=" text-center" name="secret" placeholder="Title"> -->
-      </div>
 <br>
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <label for="dogs" >Choose Your Dog's Breed:</label>
+      <input list="dogs" name="dogs">
+      <datalist id="dogs">
+        <option value="Labrador"> <option value="French Bulldogs"> <option value="German Shepherd"> <option value="Golden"> <option value="Bulldogs">
+        <option value="Poodles"> <option value="Beagles"> <option value="Rottweilers"> <option value="Pointers"> <option value="Dachshunds">
+        <option value="Pembroke Welsh"> <option value="Australian Shepherds"> <option value="Yorkshire Terriers"> <option value="Boxers"> <option value="Great Danes">
+      </datalist>
+<br>
+<label for="">You Dog age (in months) </label>
+<input type="number" name="age" min="1" max="200">
+<br>
+        <textarea  placeholder="Your Dogs description" name="secret" rows="5" cols="50" ></textarea>
+
+<br>
+      <button type="submit" class="btn btn-dark">Submit</button> <input type="reset" class="btn btn-dark">
     </form>
 
 
