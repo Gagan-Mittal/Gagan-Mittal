@@ -23,8 +23,12 @@
 <label for="">You Dog age (in months) </label>
 <input type="number" name="age" min="1" max="200">
 <br>
-        <textarea  placeholder="Your Dogs description" name="secret" rows="5" cols="50" ></textarea>
+      <label> Dog's Image</label>
+      <input type="file" id="gagan" name="" value=""   >
+      <img src=""  id= "demo" width="150px" height="150px" hidden>
+<br> <br>
 
+        <textarea  placeholder="Your Dogs description" name="secret" rows="5" cols="50" ></textarea>
 <br>
       <button type="submit" class="btn btn-dark">Submit</button> <input type="reset" class="btn btn-dark">
     </form>
@@ -33,4 +37,10 @@
   </div>
 </div>
 </div>
+<script>
+  document.getElementById('gagan').onchange = function(){
+    document.getElementById("demo").removeAttribute("hidden");
+    document.getElementById("demo").src = URL.createObjectURL(this.files[0]);
+  }
+</script>
 <%- include('partials/footer') %>
