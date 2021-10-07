@@ -1,50 +1,42 @@
 <%- include('partials/header') %>
-<div style="background-color: #4B7C5D;  ">
-<div class="container mt-5 other" >
-  <h1> Register </h1>
 
-<br>
-<br>
 
+<div class="ourbox">
+<h1>Register</h1>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
+      <img class="ourimg" src="./images/dog-signup.jpeg" alt="" >
+    </div>
+    <div class="col-sm-5">
+       <br>
       <div class="card">
         <div class="card-body">
 
-          <!-- Makes POST request to /register route -->
           <form action="/register" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
+              <input type="email" class="form-control " name="username" placeholder="Your Email">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-dark">Register</button>
           </form>
 
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
-            <i class="fab fa-google"></i>
-            Sign Up with Google
-          </a>
 
         </div>
-
+        <br>
+        <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+          <i class="fab fa-google"></i>
+          Sign Up with Google
+        </a>
       </div>
-
+      <br> <br>
+      <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
+      <a class="btn btn-dark btn-lg" href="/submit" role="button">Submit</a>
     </div>
-  </div>
-  <br> <br>
-  <a class="btn btn-primary btn-lg" href="/login" role="button">Login</a>
-  <a class="btn btn-dark btn-lg" href="/submit" role="button">Submit</a>
   </div>
 </div>
+
 <%- include('partials/footer') %>

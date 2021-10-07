@@ -1,5 +1,6 @@
 //jshint esversion:6 hello
 require('dotenv').config();
+var _ = require('lodash');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -25,6 +26,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//const MongoClient = require('mongodb').MongoClient
+//MongoClient.connect(url, { useNewUrlParser: true });
 mongoose.connect("mongodb+srv://admin-gagan:test123@cluster0.9yiu8.mongodb.net/userDB", {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
@@ -34,7 +37,7 @@ const userSchema = new mongoose.Schema ({
   password: String,
   googleId: String,
   secret: String,
-  
+
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -139,6 +142,41 @@ app.post("/submit", function(req, res){
   });
 });
 
+app.get("/profile", function(req, res){
+
+
+  if (req.isAuthenticated()){
+
+    User.findById(req.user.id, function(err, foundUser){
+      if (err) {
+        console.log(err);
+      } else {
+        if (foundUser) {
+          res.redirect("/profile/" + foundUser.name );
+
+        }
+      }
+    });
+
+  } else {
+    res.redirect("/login");
+  }
+})
+
+app.get("/profile/:name", function(req, res){
+  var x = _.lowerCase(req.params.name);
+ User.findOne({name: x}, function(err, founduser ){
+   if(err) console.log(err);
+   else{
+     if(!founduser)   res.send("Not exist");
+     else res.render("profile", {ourname : founduser.name } );
+   }
+ })
+
+
+
+});
+
 app.get("/logout", function(req, res){
   req.logout();
   res.redirect("/");
@@ -179,10 +217,19 @@ app.post("/login", function(req, res){
 
 });
 
-app.get("/apipractice", function(req, res){
-  res.render("apipractice");
-});
+
 
 app.listen( process.env.PORT  || 3000, function() {
   console.log("Server started on port 3000.");
 });
+
+// User.find(function(err, ouruser){
+//   if(err) console.log(err);
+//   else {
+//     ouruser.forEach(function(iuser){
+//       console.log(iuser.username);
+//     })
+//   }
+// })
+//     res.send("sdfs");
+//   })

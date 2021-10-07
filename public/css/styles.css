@@ -1,15 +1,39 @@
+.ourbox{
+
+  height: 150%;
+  margin: 1% 10% 0 10%;
+  border-radius:50px;
+  background-color:  #ff4c68;
+   box-shadow: 5px 10px #05dfd7;
+   text-align: center;
+
+}
+
+.ourimg{
+  height: 70%;
+
+
+
+   margin-top: 30px;
+   border-radius:50px;
+
+}
+
 
 .other{
     background-color: #ff4c68;
     padding: 100px 50px 100px 100px;
-    margin-left: 231px;
-    margin-right: 10px;
+
+
   font-family: 'Montserrat-Black', sans-serif;
 
 }
+.mainnav{
+  font-size: 2.1rem;
+  font-family: 'Ubuntu';
+}
 #title {
   background-color: #ff4c68;
-  padding-bottom: 2rem;
 }
 .title-image {
   transform : rotate(20deg);
