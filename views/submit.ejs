@@ -10,26 +10,23 @@
 
     <form action="/submit" method="POST" class="center" autocomplete="on" style="color: #F3F1C7; display: inline-block;">
       <label   for="">Owner's Name: </label>
-      <input type="text" name="name" >
+      <input type="text" name="name" onchange="change(event)" >
 <br>
       <label for="dogs" >Choose Your Dog's Breed:</label>
-      <input list="dogs" name="dogs">
+      <input list="dogs" name="breed">
       <datalist id="dogs">
         <option value="Labrador"> <option value="French Bulldogs"> <option value="German Shepherd"> <option value="Golden"> <option value="Bulldogs">
         <option value="Poodles"> <option value="Beagles"> <option value="Rottweilers"> <option value="Pointers"> <option value="Dachshunds">
         <option value="Pembroke Welsh"> <option value="Australian Shepherds"> <option value="Yorkshire Terriers"> <option value="Boxers"> <option value="Great Danes">
-      </datalist>
-<br>
-<label for="">You Dog age (in months) </label>
-<input type="number" name="age" min="1" max="200">
-<br>
-      <label> Dog's Image</label>
-      <input type="file" id="gagan" name="" value=""   >
-      <img src=""  id= "demo" width="150px" height="150px" hidden>
-<br> <br>
+      </datalist> <br>
 
-        <textarea  placeholder="Your Dogs description" name="secret" rows="5" cols="50" ></textarea>
-<br>
+      <label for="">You Dog age (in months) </label>
+      <input type="number" name="age" min="1" max="200"> <br>
+
+      <label> Dog's Image</label>
+      <input type="file" id="gagan" name="dogimage" value="">
+      <img src=""  id= "demo" width="150px" height="150px" hidden> <br> <br>
+      <textarea  placeholder="Your Dogs description" name="secret" rows="5" cols="50" ></textarea> <br>
       <button type="submit" class="btn btn-dark">Submit</button> <input type="reset" class="btn btn-dark">
     </form>
 
@@ -38,9 +35,13 @@
 </div>
 </div>
 <script>
-  document.getElementById('gagan').onchange = function(){
+  document.getElementById('gagan').onchange = function(e){
     document.getElementById("demo").removeAttribute("hidden");
     document.getElementById("demo").src = URL.createObjectURL(this.files[0]);
+    //e.target.value = URL.createObjectURL(this.files[0]);
+    // e.target.value = 'hello';
+    console.log( e) ;
   }
+  
 </script>
 <%- include('partials/footer') %>

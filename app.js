@@ -9,9 +9,9 @@ const session = require('express-session');
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const findOrCreate = require('mongoose-findorcreate');
-
+const findOrCreate = require('mongoose-findorcreate'); 
 const app = express();
+ 
 
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
@@ -28,16 +28,19 @@ app.use(passport.session());
 
 //const MongoClient = require('mongodb').MongoClient
 //MongoClient.connect(url, { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://admin-gagan:test123@cluster0.9yiu8.mongodb.net/userDB", {useNewUrlParser: true});
+mongoose.connect(  process.env.MONGODB_ID, {useNewUrlParser: true});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema ({
   name : String,
   email: String,
   password: String,
+  breed: String,
   googleId: String,
-  secret: String,
-
+  secret: [{
+    type: String,
+    required: [true, "Please Add description"],
+  }],
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -120,24 +123,30 @@ app.get("/submit", function(req, res){
 });
 
 app.post("/submit", function(req, res){
+  
+  console.log(req.files);
   const submittedSecret = req.body.secret;
-  const name = req.body.name;
+  const dogname = req.body.name;
+  const breed = req.body.breed;
 
 //Once the user is authenticated and their session gets saved, their user details are saved to req.user.
-  // console.log(req.body);
 
   User.findById(req.user.id, function(err, foundUser){
     if (err) {
       console.log(err);
     } else {
       if (foundUser) {
-        foundUser.secret = submittedSecret;
-        foundUser.name = name;
+         foundUser.secret.push(submittedSecret);
 
-        foundUser.save(function(){
-          res.redirect("/secrets");
-        });
+         if(dogname !== '') foundUser.name = dogname;
+         if(breed !== '') foundUser.breed = breed;
+        
+          foundUser.save(function(){
+           res.redirect("/secrets");
+         });
+
       }
+       
     }
   });
 });
